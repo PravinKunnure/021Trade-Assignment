@@ -6,12 +6,12 @@ import 'watchlist_event.dart';
 import 'watchlist_state.dart';
 
 class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
-  final StockRepository _repository;
+  final StockRepos _repository;
 
   /// Cached original order so we can reset at any time.
   late final List<Stock> _originalOrder;
 
-  WatchlistBloc({required StockRepository repository})
+  WatchlistBloc({required StockRepos repository})
       : _repository = repository,
         super(const WatchlistInitial()) {
     on<WatchlistLoaded>(_onLoaded);
@@ -23,14 +23,12 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
   // ---------------------------------------------------------------------------
   // Handlers
   // ---------------------------------------------------------------------------
-
   Future<void> _onLoaded(
     WatchlistLoaded event,
     Emitter<WatchlistState> emit,
   ) async {
     emit(const WatchlistLoading());
     try {
-      // Simulate a brief async fetch (e.g. from a real API).
       await Future<void>.delayed(const Duration(milliseconds: 400));
       final stocks = _repository.getWatchlistStocks().toList();
       _originalOrder = List.unmodifiable(stocks);
@@ -49,8 +47,6 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
 
     final updated = List<Stock>.from(currentState.stocks);
 
-    // Flutter's ReorderableListView fires newIndex AFTER the item is removed;
-    // we must adjust by 1 when the item moved downward.
     final int adjustedNew = event.newIndex > event.oldIndex
         ? event.newIndex - 1
         : event.newIndex;
@@ -75,18 +71,11 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
     ));
   }
 
-  // Stock tap is intentionally a no-op in the BLoC; navigation is handled
-  // by the UI layer via a BlocListener.  The event is kept in the BLoC so
-  // that side-effects (analytics, etc.) can be added later without touching
-  // the view.
+
   void _onStockTapped(
     WatchlistStockTapped event,
     Emitter<WatchlistState> emit,
   ) {}
-
-  // ---------------------------------------------------------------------------
-  // Helpers
-  // ---------------------------------------------------------------------------
 
   bool _hasOrderChanged(List<Stock> current) {
     if (current.length != _originalOrder.length) return true;

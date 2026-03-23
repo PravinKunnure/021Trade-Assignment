@@ -9,14 +9,11 @@ import 'theme/app_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Lock to portrait; remove if the app should support landscape.
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  // Use a dark system navigation bar to match the app theme.
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -36,13 +33,13 @@ class WatchlistApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => WatchlistBloc(
-        repository: SampleStockRepository(),
+        repository: SampleStockRepo(),
       ),
       child: MaterialApp(
         title: '021Trade Watchlist',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTheme,
-        home: const WatchlistScreen(),
+        home: const WatchlistMainScreen(),
       ),
     );
   }

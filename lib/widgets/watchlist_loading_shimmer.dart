@@ -103,7 +103,7 @@ class _Box extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: AppColors.darkDivider.withOpacity(opacity),
+        color: AppColors.darkDivider.withValues(alpha:opacity),
         borderRadius: BorderRadius.circular(radius),
       ),
     );

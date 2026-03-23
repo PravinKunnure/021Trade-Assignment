@@ -1,10 +1,11 @@
 import '../models/stock.dart';
 
-abstract class StockRepository {
+abstract class StockRepos {
   List<Stock> getWatchlistStocks();
 }
 
-class SampleStockRepository implements StockRepository {
+//Demo purpose usage of this class
+class SampleStockRepo implements StockRepos {
   static const List<Stock> _stocks = [
     Stock(
       id: 'AAPL',
@@ -14,7 +15,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: 2.34,
       changePercent: 1.25,
       volume: 54230000,
-      trend: StockTrend.up,
+      trend: StockTrendz.up,
     ),
     Stock(
       id: 'TSLA',
@@ -24,7 +25,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: -5.72,
       changePercent: -2.25,
       volume: 89120.000,
-      trend: StockTrend.down,
+      trend: StockTrendz.down,
     ),
     Stock(
       id: 'GOOGL',
@@ -34,7 +35,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: 1.88,
       changePercent: 1.09,
       volume: 21540000,
-      trend: StockTrend.up,
+      trend: StockTrendz.up,
     ),
     Stock(
       id: 'MSFT',
@@ -44,7 +45,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: 3.45,
       changePercent: 0.84,
       volume: 18750000,
-      trend: StockTrend.up,
+      trend: StockTrendz.up,
     ),
     Stock(
       id: 'AMZN',
@@ -54,7 +55,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: -2.19,
       changePercent: -1.09,
       volume: 33210000,
-      trend: StockTrend.down,
+      trend: StockTrendz.down,
     ),
     Stock(
       id: 'NVDA',
@@ -64,7 +65,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: 14.60,
       changePercent: 1.70,
       volume: 42890000,
-      trend: StockTrend.up,
+      trend: StockTrendz.up,
     ),
     Stock(
       id: 'META',
@@ -74,7 +75,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: -8.45,
       changePercent: -1.58,
       volume: 15670000,
-      trend: StockTrend.down,
+      trend: StockTrendz.down,
     ),
     Stock(
       id: 'NFLX',
@@ -84,7 +85,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: 0.00,
       changePercent: 0.00,
       volume: 4320000,
-      trend: StockTrend.neutral,
+      trend: StockTrendz.neutral,
     ),
     Stock(
       id: 'RELIANCE',
@@ -94,7 +95,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: 38.20,
       changePercent: 1.31,
       volume: 9870000,
-      trend: StockTrend.up,
+      trend: StockTrendz.up,
     ),
     Stock(
       id: 'TCS',
@@ -104,7 +105,7 @@ class SampleStockRepository implements StockRepository {
       changeAmount: -22.10,
       changePercent: -0.56,
       volume: 3240000,
-      trend: StockTrend.down,
+      trend: StockTrendz.down,
     ),
   ];
 

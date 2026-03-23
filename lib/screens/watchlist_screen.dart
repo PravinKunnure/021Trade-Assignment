@@ -10,14 +10,14 @@ import '../widgets/watchlist_error_state.dart';
 import '../widgets/watchlist_header.dart';
 import '../widgets/watchlist_loading_shimmer.dart';
 
-class WatchlistScreen extends StatefulWidget {
-  const WatchlistScreen({super.key});
+class WatchlistMainScreen extends StatefulWidget {
+  const WatchlistMainScreen({super.key});
 
   @override
-  State<WatchlistScreen> createState() => _WatchlistScreenState();
+  State<WatchlistMainScreen> createState() => _WatchlistMainScreenState();
 }
 
-class _WatchlistScreenState extends State<WatchlistScreen> {
+class _WatchlistMainScreenState extends State<WatchlistMainScreen> {
   @override
   void initState() {
     super.initState();
@@ -35,10 +35,6 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
       ),
     );
   }
-
-  // ---------------------------------------------------------------------------
-  // AppBar
-  // ---------------------------------------------------------------------------
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
@@ -89,9 +85,6 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // Body builder
-  // ---------------------------------------------------------------------------
 
   Widget _buildBody(BuildContext context, WatchlistState state) {
     return switch (state) {
@@ -172,13 +165,9 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // Listener
-  // ---------------------------------------------------------------------------
-
   void _handleStateChange(BuildContext context, WatchlistState state) {
-    if (state is WatchlistLoadSuccess && state.isReordered) {
-      // Could show a SnackBar on first reorder, etc.
-    }
+    // if (state is WatchlistLoadSuccess && state.isReordered) {
+    //   // Could show a SnackBar on first reorder, etc.
+    // }
   }
 }

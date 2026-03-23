@@ -20,8 +20,8 @@ class StockTile extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      splashColor: AppColors.primary.withOpacity(0.08),
-      highlightColor: AppColors.primary.withOpacity(0.04),
+      splashColor: AppColors.primary.withValues(alpha: 0.08),
+      highlightColor: AppColors.primary.withValues(alpha: 0.04),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         child: Row(
@@ -97,26 +97,22 @@ class StockTile extends StatelessWidget {
     );
   }
 
-  Color _trendColor(StockTrend trend) {
+  Color _trendColor(StockTrendz trend) {
     return switch (trend) {
-      StockTrend.up => AppColors.gain,
-      StockTrend.down => AppColors.loss,
-      StockTrend.neutral => AppColors.neutral,
+      StockTrendz.up => AppColors.gain,
+      StockTrendz.down => AppColors.loss,
+      StockTrendz.neutral => AppColors.neutral,
     };
   }
 
-  Color _trendBg(StockTrend trend) {
+  Color _trendBg(StockTrendz trend) {
     return switch (trend) {
-      StockTrend.up => AppColors.gainBg,
-      StockTrend.down => AppColors.lossBg,
-      StockTrend.neutral => AppColors.darkCard,
+      StockTrendz.up => AppColors.gainBg,
+      StockTrendz.down => AppColors.lossBg,
+      StockTrendz.neutral => AppColors.darkCard,
     };
   }
 }
-
-// ---------------------------------------------------------------------------
-// Sub-widgets
-// ---------------------------------------------------------------------------
 
 class _SymbolBadge extends StatelessWidget {
   final String symbol;
@@ -131,15 +127,15 @@ class _SymbolBadge extends StatelessWidget {
       width: 44,
       height: 44,
       decoration: BoxDecoration(
-        color: color.withOpacity(0.18),
+        color: color.withValues(alpha:0.18),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: color.withOpacity(0.35), width: 0.8),
+        border: Border.all(color: color.withValues(alpha:0.35), width: 0.8),
       ),
       child: Center(
         child: Text(
           symbol.length > 2 ? symbol.substring(0, 2) : symbol,
           style: TextStyle(
-            color: color.withOpacity(0.9),
+            color: color.withValues(alpha:0.9),
             fontWeight: FontWeight.w800,
             fontSize: 13,
           ),
@@ -184,7 +180,7 @@ class _ChangeBadge extends StatelessWidget {
           Text(
             change,
             style: TextStyle(
-              color: trendColor.withOpacity(0.75),
+              color: trendColor.withValues(alpha:0.75),
               fontSize: 11,
             ),
           ),

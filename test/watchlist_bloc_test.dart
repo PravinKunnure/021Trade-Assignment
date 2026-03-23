@@ -4,11 +4,8 @@ import 'package:watchlist_app/bloc/bloc.dart';
 import 'package:watchlist_app/models/stock.dart';
 import 'package:watchlist_app/models/stock_repository.dart';
 
-// ---------------------------------------------------------------------------
-// Fake repository for testing
-// ---------------------------------------------------------------------------
 
-class _FakeRepository implements StockRepository {
+class _FakeRepository implements StockRepos {
   @override
   List<Stock> getWatchlistStocks() => const [
         Stock(
@@ -19,7 +16,7 @@ class _FakeRepository implements StockRepository {
           changeAmount: 1,
           changePercent: 1,
           volume: 1000,
-          trend: StockTrend.up,
+          trend: StockTrendz.up,
         ),
         Stock(
           id: 'B',
@@ -29,7 +26,7 @@ class _FakeRepository implements StockRepository {
           changeAmount: -2,
           changePercent: -1,
           volume: 2000,
-          trend: StockTrend.down,
+          trend: StockTrendz.down,
         ),
         Stock(
           id: 'C',
@@ -39,14 +36,10 @@ class _FakeRepository implements StockRepository {
           changeAmount: 0,
           changePercent: 0,
           volume: 3000,
-          trend: StockTrend.neutral,
+          trend: StockTrendz.neutral,
         ),
       ];
 }
-
-// ---------------------------------------------------------------------------
-// Tests
-// ---------------------------------------------------------------------------
 
 void main() {
   late WatchlistBloc bloc;
@@ -89,7 +82,7 @@ void main() {
             changeAmount: 1,
             changePercent: 1,
             volume: 1000,
-            trend: StockTrend.up,
+            trend: StockTrendz.up,
           ),
           Stock(
             id: 'B',
@@ -99,7 +92,7 @@ void main() {
             changeAmount: -2,
             changePercent: -1,
             volume: 2000,
-            trend: StockTrend.down,
+            trend: StockTrendz.down,
           ),
           Stock(
             id: 'C',
@@ -109,7 +102,7 @@ void main() {
             changeAmount: 0,
             changePercent: 0,
             volume: 3000,
-            trend: StockTrend.neutral,
+            trend: StockTrendz.neutral,
           ),
         ],
         isReordered: false,

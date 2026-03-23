@@ -23,7 +23,7 @@ class WatchlistErrorState extends StatelessWidget {
               width: 64,
               height: 64,
               decoration: BoxDecoration(
-                color: AppColors.loss.withOpacity(0.1),
+                color: AppColors.loss.withValues(alpha:0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(

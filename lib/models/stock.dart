@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-enum StockTrend { up, down, neutral }
+enum StockTrendz { up, down, neutral }
 
 class Stock extends Equatable {
   final String id;
@@ -10,7 +10,7 @@ class Stock extends Equatable {
   final double changeAmount;
   final double changePercent;
   final double volume;
-  final StockTrend trend;
+  final StockTrendz trend;
 
   const Stock({
     required this.id,
@@ -33,7 +33,7 @@ class Stock extends Equatable {
     double? changeAmount,
     double? changePercent,
     double? volume,
-    StockTrend? trend,
+    StockTrendz? trend,
   }) {
     return Stock(
       id: id ?? this.id,

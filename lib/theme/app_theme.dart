@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
 
-/// Colour tokens used throughout the app.
 abstract class AppColors {
-  // Brand
-  static const Color primary = Color(0xFF00D09C);       // 021Trade green accent
+  static const Color primary = Color(0xFF00D09C);
   static const Color primaryDark = Color(0xFF00A87E);
-
-  // Backgrounds
   static const Color darkBg = Color(0xFF0D1117);
   static const Color darkSurface = Color(0xFF161B22);
   static const Color darkCard = Color(0xFF1C2128);
   static const Color darkDivider = Color(0xFF30363D);
-
-  // Text
   static const Color textPrimary = Color(0xFFE6EDF3);
   static const Color textSecondary = Color(0xFF8B949E);
   static const Color textTertiary = Color(0xFF484F58);
-
-  // Gain / Loss
   static const Color gain = Color(0xFF26A86E);
   static const Color gainBg = Color(0xFF0D2518);
   static const Color loss = Color(0xFFCF4532);
   static const Color lossBg = Color(0xFF2A0C0C);
   static const Color neutral = Color(0xFF8B949E);
 }
+
 
 class AppTheme {
   AppTheme._();
